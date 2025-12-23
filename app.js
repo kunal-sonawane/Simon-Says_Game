@@ -25,9 +25,9 @@
   }
 
   function userFlash(btn) {
-    btn.classList.add("userflash");
+    btn.classList.add("userFlash");
     setTimeout(function () {
-        btn.classList.remove("userflash");
+        btn.classList.remove("userFlash");
     }, 250);
   }
 
@@ -48,9 +48,10 @@
     if( userSeq[idx] === gameSeq[idx]) {
         if(userSeq.length == gameSeq.length) {
             setTimeout(levelUp, 1000);
-        }      
+        }
     } else {
-        h2.innerHTML = `Game over! Your score was <b>${level}<b/> <br> Press any key to restart.`;
+        h2.innerHTML = `Game Over! Your score was <b>${level}</b><br>Press any key to restart.`;
+
         document.querySelector("body").style.backgroundColor = "red";
         setTimeout(function () {
             document.querySelector("body").style.backgroundColor = "white";
@@ -64,7 +65,7 @@
     let btn = this;
     userFlash(btn);
 
-    userColor = btn.getAttribute("id");
+   let userColor = btn.getAttribute("id");
     userSeq.push(userColor);
 
     checkAns(userSeq.length - 1);
@@ -72,7 +73,7 @@
 
   let allBtns = document.querySelectorAll(".btn");
   for( let btn of allBtns) {
-    btn.addEventListener("click", btnPress);        
+    btn.addEventListener("click", btnPress);
   }
 
   function reset (){
